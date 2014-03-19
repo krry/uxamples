@@ -1,7 +1,776 @@
-html {
-	font-size: 16px;
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500,800);
+
+:root {
+  var-pagewidth: 60rem;
+  var-sans-serif: "Helvetica Neue", sans-serif;
+  var-serif: "Georgia", serif;
+  var-headline: 'Alegreya Sans SC', sans-serif;
+
+  /* minerals */
+  var-sienna: #882D17;
+  var-cinnabar: #E34234;
+  var-cadmium-red: #E30022;
+  var-cadmium-orange: #ED872D;
+  var-cadmium-yellow: #FFF600;
+  var-cadmium-green: #006B3C;
+  var-citrine: #E4D00A;
+  var-peridot: #E6E200;
+  var-viridian: #40826D;
+  var-verdigris: #43B3AE;
+  var-jade: #00A86B;
+  var-malachite: #0BDA51;
+  var-lapis-lazuli: #26619C;
+  var-cobalt: #0047AB;
+  var-onyx: #0F0F0F;
+  var-platinum: #E5E4E2;
+
+  /* dye */
+  var-indigo: #00416A;
+  var-magenta: #CA1F7B;
+  var-scarlet: #FF2400;
+  var-ecru: #C2B280;
+  var-ochre: #CC7722;
+  var-mustard: #FFDB58;
+
+  /* nature */
+  var-raspberry: #E30B5C;
+  var-periwinkle: #CCCCFF;
+  var-robin-egg-blue: #00CCCC;
+
+  /* cultural */
+  var-orange: #FF7F00;
+  var-chartreuse: #DFFF00;
+  var-kelly-green: #4CBB17;
+  var-capri: #00BFFF;
+  var-azure: #007FFF;
+  var-cadet: #536878;
 }
 
+/* set base font */
+html {
+  font-size: 16px;
+  font-family: serif;
+}
+
+/* basic page frame and styles */
 body {
-	font-size: 100%;
+  font-size: 100%;
+  line-height: 1.375;
+  padding: 0;
+  margin: 0;
+  color: var(onyx);
+  background: var(platinum);
+}
+
+/* firefox fix */
+body, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+/* reset header text spacing and weight */
+h1, h2, h3, h4, h5, h6 {
+  margin: .5em 0;
+  font-weight: 300;
+  font-family: var(headline);
+}
+
+/* big headers */
+h1, h2, h3 {
+  color: var(indigo);
+}
+
+/* smaller headers */
+h4, h5, h6 {
+  color: var(cadet);
+}
+
+/* use small for header subtext */
+small {
+  font-size: .5em;
+  font-weight: 400;
+}
+
+/* reset anchors and links */
+a, a:link {
+  color: var(jade);
+  transition: color .15s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover, a:link:hover {
+  color: var(malachite);
+}
+
+a:visited {
+  color: var(verdigris);
+}
+
+/* buttons of various types, colors, and sizes */
+button, a.btn, input[type=submit], input[type=button] {
+  appearance: none;
+  display: block;
+  width: auto;
+  max-width: 240px;
+  margin: .5rem auto;
+  padding: 0.75rem 1rem;
+  outline: none;
+  color: white;
+  text-shadow: none;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: all .2s ease-in-out;
+}
+
+button:hover, a.btn:hover, input[type=submit]:hover, input[type=button]:hover {
+  color: white;
+}
+
+button.small, a.btn.small, input[type=submit].small, input[type=button].small {
+  font-size: 1rem;
+}
+
+button.large, a.btn.large, input[type=submit].large, input[type=button].large {
+  font-size: 1.5rem;
+}
+
+button.blue, a.btn.blue, input[type=submit].blue, input[type=button].blue {
+  background-color: var(azure);
+}
+
+button.green, a.btn.green, input[type=submit].green, input[type=button].green {
+  background-color: var(jade);
+}
+
+button.orange, a.btn.orange, input[type=submit].orange, input[type=button].orange {
+  background-color: var(orange);
+}
+
+button.blue:hover, a.btn.blue:hover, input[type=submit].blue:hover, input[type=button].blue:hover {
+  background-color: var(capri);
+}
+
+button.green:hover, a.btn.green:hover, input[type=submit].green:hover, input[type=button].green:hover {
+  background-color: var(malachite);
+}
+
+button.orange:hover, a.btn.orange:hover, input[type=submit].orange:hover, input[type=button].orange:hover {
+  background-color: var(cinnabar);
+}
+
+/* image, video, multimedia content size limitations */
+img, embed, object, video {
+  max-width: 100%;
+}
+
+/* form fields, inputs, labels */
+fieldset {
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+fieldset > label:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: .25rem;
+}
+
+label {
+  display: block;
+  font-size: .75rem;
+  text-indent: .25rem;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=password] {
+  width: 100%;
+  height: 2em;
+  margin-bottom: 1rem;
+  border: 1px solid #aaaaaa;
+  padding: 0;
+  line-height: 2em;
+  font-size: 1.25em;
+  font-family: var(sans-serif);
+  text-indent: .5em;
+  color: var(onyx);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(capri);
+}
+
+/* input placeholders */
+::placeholder {
+  opacity: .75;
+  transition: opacity .2s;
+}
+
+:focus::placeholder {
+  opacity: .2;
+}
+
+/* validation classes borrowed from Stripe */
+input.invalid {
+  border-color: var(cadmium-red);
+}
+
+.validation.failed:after {
+  color: var(cadmium-red);
+  content: 'Something\'s amiss';
+}
+
+.validation.passed:after {
+  color: var(cadmium-green);
+  content: 'Looks good';
+}
+
+/* helper classes */
+
+/* add this class to anything you want to contain within the page width */
+.tray {
+  /* mobile first, it's full width */
+  width: 100%
+}
+
+/* justified inline-blocks: to make even columns, grid, etc., add this class to the parent */
+.just {
+  font-size: 0;
+  text-align: justify;
+  /* TODO debug the extra bottom margin justifying adds */
+  margin-bottom: -1rem;
+}
+
+.just:after {
+  content: "";
+  width: 100%;
+  display: inline-block;
+  height: 0;
+}
+
+/* add this class to columns, grid blocks, child items */
+.ib {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* TODO debug the extra bottom margin justifying adds */
+header .just {
+  margin-bottom: -.5rem;
+}
+
+.ib img {
+  display: block;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+/* on mobile, stretch the partial blocks to full width */
+.ib.half, .ib.full {
+  width: 100%;
+}
+
+/* on mobile, narrower columns become half width */
+.ib.sixth, .ib.fourth, .ib.third {
+  width: 48%;
+}
+
+/* simple reversible hide */
+.hide {
+  display: none;
+}
+
+/* super secret irreversible hide */
+.disappear {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  text-indent: -9999px;
+}
+
+/* flip colors to night mode */
+.night {
+  background-color: var(cobalt);
+  color: white;
+}
+
+.night a, .night a:link, .night h1, .night h2, .night h3, .night h4, .night h5, .night h6 {
+  color: white;
+}
+
+.night a:hover, .night a:link:hover, .night a:visited {
+  color: var(platinum);
+}
+
+/* if you insist on using floats for layout (the justified inline-blocks are highly recommended) */
+.float {
+  text-align: left;
+  float: left;
+}
+
+.float.right {
+  text-align: right;
+  float: right;
+}
+
+/* clearfix for floats, add .group to parent div */
+.group {
+  overflow: hidden;
+}
+
+.group:after {
+  clear: both;
+  display: block;
+  height: 0;
+  content: ".";
+  visibility: hidden;
+}
+
+/* tray for video embeds to preserve aspect ratio and fill space */
+.video-tray {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 1.875rem;
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.video-tray iframe,.video-tray object, .video-tray embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* mobile width type styles first */
+#page {
+  font-size: 1em;
+  line-height: 1.25em;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 1.25em;
+  padding-top: .5em;
+}
+
+h2 {
+  font-size: 1.625em;
+  line-height: 1.2em;
+  margin-top: 1em;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.375em;
+  line-height: 1.15em;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.125em;
+  line-height: 1.125em;
+  font-weight: 500;
+}
+
+blockquote {
+  font-size: 1.25em;
+  line-height: 1.25em;
+  font-family: var(serif);
+  margin: 0;
+}
+
+/* mobile page layout sections: footer, header, hero */
+footer.footer {
+  padding: 2rem 1rem;
+  margin: 0 -1rem;
+}
+
+
+/* header logo, use .logo class and add an id for each additional logos */
+.logo {
+  width: 100%;
+  height: 2.5rem;
+  margin: .75rem 0;
+  background-repeat: no-repeat;
+  background-position: 46% top;
+  background-size: contain;
+  text-indent: -9999px;
+}
+
+#logo {
+  background-image: url(/img/logo.png);
+}
+
+/* navs for whole site and individual page */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  font-weight: 300;
+}
+
+nav.site li a {
+  font-size: 1.25rem;
+  color: var(indigo);
+}
+
+nav.site li a:hover {
+  color: var(cobalt);
+}
+
+nav.site li {
+  width: 100%;
+  text-align: center;
+  vertical-align: baseline;
+  display: none;
+}
+
+nav.site li.active {
+  display: block;
+}
+
+nav.page {
+  display: none;
+}
+
+/* use a .pipe to separate inline links with vertical bars*/
+.pipe:after {
+  content: "\00a0|\00a0";
+  display: inline;
+  color: #dddddd;
+}
+
+/* hero + headline + call-to-action (.cta) */
+.hero {
+  margin: 0 -1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+#hero {
+  min-height: 18rem;
+  background-image: url(/img/hero.jpg);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 150% auto;
+  box-shadow: inset 0px 6px 6px -6px #777777, inset 0px -6px 6px -6px #777777;
+}
+
+.hero p {
+  display: none;
+}
+
+.hero h1 {
+  margin-top: 0;
+  padding-top: 0;
+  text-align: center;
+}
+
+.cta {
+  text-align: center;
+}
+
+
+/* for legal docs, terms and conditions */
+.terms.inpage {
+  overflow: scroll;
+  height: 240px;
+  width: 85%;
+  margin: 0 auto;
+  border: 1px solid #aaaaaa;
+  padding: 0 .5rem;
+}
+
+.terms h1, .terms h2, .terms h3, .terms h4 {
+  color: #777777;
+}
+
+.terms h2:first-child {
+  margin-top: .5em;
+}
+
+.terms > ol {
+  list-style-type: decimal;
+}
+
+.terms > ol > li > ol {
+  list-style-type: lower-roman;
+}
+
+.terms > ol > li > ol > li > ol {
+  list-style-type: lower-latin;
+}
+
+.terms ol {
+  padding-left: 1.25rem;
+}
+
+/* page specific styles */
+.links {
+  width: 100%;
+  text-align: center;
+}
+
+.step {
+  background: #eeeeee;
+  margin: 1rem -1rem;
+  padding: .5rem 1rem;
+}
+
+.step h2 {
+  margin-top: .5em;
+}
+
+.kit {
+  margin-bottom: 1rem;
+}
+
+.toggle {
+  font-size: 1rem;
+  margin-bottom: .5em;
+  text-indent: 0;
+  margin-left: 1rem;
+  width: 80%;
+}
+
+/* > 536px --- bigger than iPhone portrait */
+@media screen and (min-width: 536px) {
+  /* let .half .third etc express */
+  .ib.half {
+    width: 48%;
+  }
+
+  .ib.third {
+    width: 31%
+  }
+
+  .ib.sixth {
+    width: 14.5%
+  }
+
+  .ib.third.two {
+    width: 64%
+  }
+
+  .ib.fourth {
+    width: 23%
+  }
+
+  .ib.fourth.three {
+    width: 73%
+  }
+
+  #hero {
+    background-size: auto 100%;
+    background-position: bottom center;
+  }
+
+  .hero h1, .hero {
+    text-align: left;
+  }
+
+  .hero p {
+    display: block;
+  }
+}
+
+/* > 700px --- phablets */
+@media screen and (min-width: 700px) {
+  /* size up the text */
+  .logo {
+    height: 48px;
+  }
+
+  #page {
+    font-size: 1em;
+    line-height: 1.375;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.125;
+  }
+
+  h2 {
+    font-size: 2em;
+    line-height: 1.25;
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  h4 {
+    line-height: 1.225em;
+    font-weight: 500;
+  }
+
+  blockquote {
+    font-size: 1.5em;
+    line-height: 1.475em;
+  }
+
+  /* things that need to stretch to the edges */
+  footer.footer {
+    margin: 0 -1em;
+  }
+
+  /* TODO root out the just:after margin-bottom problem */
+  .just, header .just {
+    margin-bottom: 0;
+  }
+
+  .links {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    text-align: right;
+  }
+
+  /* more space in the header */
+  .hero {
+    padding: 2rem;
+  }
+
+  .hero a.btn {
+    margin: 1rem 0;
+  }
+
+  .cta {
+    text-align: center;
+  }
+
+  /* expand the nav */
+  nav.site li {
+    width: auto;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+  }
+
+  nav.site li, nav.site li a {
+    padding: .5em;
+  }
+
+  nav.site li.active {
+    display: inline-block;
+  }
+
+  nav.site li.active a {
+    font-weight: 500;
+    color: var(cinnabar);
+  }
+}
+
+/* > 900px --- big tablets/laptops */
+@media screen and (min-width: 900px) {
+  body {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3em;
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: 2.25em;
+    line-height: 1.25;
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: 1.75em;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  p {
+    margin-top: 0;
+    font-weight: 300;
+  }
+
+  /* sets and contains contents within the page width */
+  .tray {
+    width: var(pagewidth);
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .terms.tray {
+    width: 7.5in;
+  }
+
+  .terms ol {
+    padding-left: 2.5rem;
+  }
+
+  /* things to stretch to the edges on big screens */
+  header, .footer, #page {
+    margin: 0 -1em;
+  }
+
+  /* adds an underline to the header */
+  header {
+    overflow: hidden;
+  }
+
+  .logo {
+    height: 54px;
+    margin: 1rem 0;
+  }
+
+  #logo {
+    width: 466px;
+  }
+
+  .cta {
+    text-align: left;
+  }
+
+  nav.site li a {
+    font-size: 1.5rem;
+  }
+}
+
+/*only when page is printed*/
+@media print {
+  #page {
+    font-size: 12pt;
+    line-height: 1.25em;
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 36pt;
+    line-height: 1.25em;
+  }
+}
+
+/* emerging spec replacement for viewport meta tag */
+@-ms-viewport {
+  zoom: 1.0;
+}
+
+@-o-viewport {
+  zoom: 1.0;
+}
+
+@viewport {
+  width: device-width;
 }

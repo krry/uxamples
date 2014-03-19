@@ -1,4 +1,4 @@
 name = {
-	first: 'Kerry',
-	last: 'Snyder'
+  first: 'Kerry',
+  last: 'Snyder'
 }
