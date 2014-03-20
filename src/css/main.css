@@ -1,10 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500,800);
-
 :root {
   var-pagewidth: 60rem;
-  var-sans-serif: "Helvetica Neue", sans-serif;
-  var-serif: "Georgia", serif;
-  var-headline: 'Alegreya Sans SC', sans-serif;
+  var-sans-serif: "Source Sans Pro", sans-serif;
+  var-serif: "Linux Libertine", serif;
+  var-headline: 'Montserrat', sans-serif;
 
   /* minerals */
   var-sienna: #882D17;
@@ -60,6 +58,7 @@ body {
   margin: 0;
   color: var(onyx);
   background: var(platinum);
+  font-family: var(sans-serif);
 }
 
 /* firefox fix */
@@ -191,7 +190,7 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
   padding: 0;
   line-height: 2em;
   font-size: 1.25em;
-  font-family: var(sans-serif);
+  font-family: var(serif);
   text-indent: .5em;
   color: var(onyx);
 }
